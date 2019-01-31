@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="row header">
+        <div class="col-sm-2 logo">
+           <a href="/loja/"><img src="../img/logo.png"></a>
+            <p>Pag-Certo</p>
+        </div>
+        <div class="col-sm-6 search">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 login">
+            <a id="user"><img  src="../img/user.png"></a>
+            <a href="carrinho.html"><img id="carrinho" src="../img/car.png"></a>
+            <form action="">
+                <div class="form-group formulario">
+                    <input type="text" class="form-control" placeholder="Email" />
+                    <input type="text" class="form-control" placeholder="Senha" />
+                    <div class="botoes">
+                            <a class="btn btn-primary">Logar</a>
+                            <a href="cadastro" class="btn btn-primary">Cadastrar-se</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="fundoCadastro">
+        <div id="alert" class="alert alert-success">
+            <strong>Cadastrado com sucesso</strong>
+        </div>
+        <p>Cadastro</p>
+        <form action="#" th:action="@{/salvar}" th:object="${cliente}" method="post">
+         	<input type="text" name="id" id="id" class="form-control" placeholder="id" />
+            <input type="text" th:field="*{nome}"   name="nome" id="nome" class="form-control" placeholder="Nome" />
+            <input type="text" th:field="*{email}"  name="email" id="email" class="form-control" placeholder="Email" />
+            <input type="password" th:field="*{senha}"  name="senha" id="senha" class="form-control" placeholder="Senha" />
+
+            <a id="cadastrar" type="submit" value="Submit" class="btn btn-primary">Cadastrar</a>
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </form>
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+
+</html>
